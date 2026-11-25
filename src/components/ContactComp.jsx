@@ -325,7 +325,7 @@ function ContactComp() {
             <div className="border border-white/10 bg-[#0a0b10] p-2 shadow-2xl">
               <iframe
                 title="Calcutta No-1 Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3970.3277854080857!2d88.3766695752973!3d22.46378327956922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDI3JzQ5LjYiTiA4OMKwMjInNDUuMyJF!5e1!3m2!1sen!2sin!4v1794472319694!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.1245518002165!2d88.37645641116407!3d22.46392667948366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0271df8012a39b%3A0x7fb33e1f263b60ca!2sCalcutta%20No.1%20Digital%20Sound%20%26%20Stage%20Light!5e1!3m2!1sen!2sin!4v1795594979157!5m2!1sen!2sin"
                 width="600"
                 height="450"
                 style={{ border: 0 }}
