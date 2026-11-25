@@ -9,110 +9,7 @@ import {
   modalPanelVariants,
 } from '../motion/motionConfig';
 import MagneticWrap from './MagneticWrap';
-import img1 from '../assets/images/img1.jpeg';
-import stageLightingImg from '../assets/images/stage-lighting-dmx-opt.jpg';
-import trussLedWallImg from '../assets/images/truss-led-wall-opt.jpg';
-import liveConcertImg from '../assets/images/live-concert-stage-opt.jpg';
-import img3 from '../assets/images/img3.jpeg';
-import img4 from '../assets/images/img4.jpeg';
-import vid1 from '../assets/videos/vid1.mp4';
-
-const mediaItems = [
-  {
-    id: 'vid-1',
-    num: '01',
-    type: 'video',
-    src: vid1,
-    poster: img1,
-    title: 'Live Stage, Sound & Lighting Reel',
-    category: 'Live Show Video',
-    caption: 'Live venue showcase capturing stage audio clarity, overhead rig, and crowd illumination.',
-  },
-  {
-    id: 'img-1',
-    num: '02',
-    type: 'photo',
-    src: img1,
-    width: 1200,
-    height: 1600,
-    title: 'Soundcraft Si Impact Digital Mixing & Stage Rig',
-    category: 'Sound & Console',
-    caption: 'FOH Soundcraft digital console with UPS backup, line array mains, and overhead par lighting.',
-  },
-  {
-    id: 'img-lighting',
-    num: '03',
-    type: 'photo',
-    src: stageLightingImg,
-    width: 1376,
-    height: 768,
-    title: 'DMX Stage Lighting & Moving Head Rig',
-    category: 'Stage Lighting',
-    caption: 'Synchronized Sharpy moving-head beams and RGBW LED par washes programmed via DMX console.',
-  },
-  {
-    id: 'img-truss',
-    num: '04',
-    type: 'photo',
-    src: trussLedWallImg,
-    width: 1376,
-    height: 768,
-    title: 'Box Truss Structure, Line Array & HD LED Wall',
-    category: 'Truss & LED Screen',
-    caption: 'Heavy-duty aluminum box trussing with flown line array stacks and seamless LED backdrop.',
-  },
-  {
-    id: 'img-concert',
-    num: '05',
-    type: 'photo',
-    src: liveConcertImg,
-    width: 1376,
-    height: 768,
-    title: 'Grand Live Concert & Festival Production',
-    category: 'Live Stage Show',
-    caption: 'Full-scale concert production combining digital sound, truss lighting, and LED visuals.',
-  },
-  {
-    id: 'img-3',
-    num: '06',
-    type: 'photo',
-    src: img3,
-    width: 1280,
-    height: 960,
-    title: 'Calcutta No-1 Storefront — Garia Main Road',
-    category: 'Our Location',
-    caption: 'Headquarters at 1312 Garia Main Road, Charu Residency, Near Kavi Nazrul Metro Station.',
-  },
-  {
-    id: 'img-4',
-    num: '07',
-    type: 'photo',
-    src: img4,
-    width: 720,
-    height: 1280,
-    title: 'Official Business Card & Service Profile',
-    category: 'Contact Card',
-    caption: 'Direct contact line (8910905150), GSTIN, and official licence details.',
-  },
-];
-
-const setupChecklist = [
-  {
-    code: 'PRE-EVENT',
-    title: 'Load-In & Truss Safety Check',
-    desc: 'Early equipment arrival, box truss leveling, and safe routing of audio and power lines.',
-  },
-  {
-    code: 'AUDIO CHECK',
-    title: 'Console & Mic Calibration',
-    desc: 'Individual channel gain staging on Soundcraft digital desks for distortion-free speech and vocals.',
-  },
-  {
-    code: 'STAGE FX',
-    title: 'Lighting Focus & LED Sync',
-    desc: 'Pre-show DMX fixture aiming, stage wash balance, and LED backdrop visual checks.',
-  },
-];
+import { mediaItems, setupChecklist } from '../data/galleryData';
 
 const photoItems = mediaItems.filter((item) => item.type === 'photo');
 
@@ -212,8 +109,8 @@ function GalleryComp() {
             </h1>
             <p className="mt-3 max-w-xl text-sm text-[#b6bac3] sm:text-base">
               Authentic photos and live show footage straight from our Calcutta No - 1
-              assets collection—featuring our Soundcraft FOH rig, lighting bars, and
-              Garia headquarters.
+              assets collection—featuring our Soundcraft & Midas FOH rigs, concert lighting, box truss, and
+              heavy event fleet.
             </p>
           </div>
 
@@ -224,9 +121,9 @@ function GalleryComp() {
             aria-label="Gallery media filter"
           >
             {[
-              { id: 'all', label: 'All Media' },
-              { id: 'photo', label: 'Photos' },
-              { id: 'video', label: 'Videos' },
+              { id: 'all', label: `All Media (${mediaItems.length})` },
+              { id: 'photo', label: `Photos (${photoItems.length})` },
+              { id: 'video', label: `Videos (${mediaItems.length - photoItems.length})` },
             ].map((tab) => {
               const isActive = filter === tab.id;
               return (
@@ -271,7 +168,7 @@ function GalleryComp() {
                   scale: 1,
                   transition: {
                     duration: 0.45,
-                    delay: idx * 0.05,
+                    delay: Math.min(idx * 0.02, 0.4),
                     ease: MOTION_EASE.cinematic,
                   },
                 }}
